@@ -1,21 +1,29 @@
 package com.bolarinwa.apps.blogengine.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Data
+//@NoArgsConstructor
 @Entity
 public class Post {
- 
-    public String title;
-    public Date postedAt;
-    
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
+    private Long id;
+
+    private String title;
+    private Date postedAt;
+
     @Lob
-    public String content;
+    private String content;
     
     @ManyToOne
-    public User author;
+    private User author;
     
     public Post(User author, String title, String content) {
         this.author = author;
