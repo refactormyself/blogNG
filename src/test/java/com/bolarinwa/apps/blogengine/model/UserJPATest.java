@@ -22,6 +22,8 @@ public class UserJPATest {
         Assertions.assertThat(me.getFullname()).isEqualTo("All-names-goes");
         Assertions.assertThat(me.getEmail()).isEqualTo("me@email.net");
         Assertions.assertThat(me.getPassword()).isEqualTo("hidden_secret");
+        Assertions.assertThat(me.getId()).isNotNull();
+        Assertions.assertThat(me.getId()).isGreaterThan(0);
 
     }
 
