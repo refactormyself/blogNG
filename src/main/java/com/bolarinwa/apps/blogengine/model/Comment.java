@@ -12,20 +12,18 @@ import java.util.Date;
 public class Comment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
+    @GeneratedValue
     private Long id;
-
     private String author;
     private Date postedAt;
-
     @Lob
     private String content;
     
     @ManyToOne
     public Post post;
     
-    public Comment(Post post, String author, String content) {
+    public Comment(Long id, Post post, String author, String content) {
+        this.id = id;
         this.post = post;
         this.author = author;
         this.content = content;

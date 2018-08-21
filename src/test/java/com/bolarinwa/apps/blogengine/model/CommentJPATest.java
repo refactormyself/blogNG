@@ -19,14 +19,14 @@ public class CommentJPATest {
     @Test
     public void commentEntityMapping(){
         User user = testEntityManager.persist(
-                new User("me@email.net", "hidden_secret", "All-names-goes"));
+                new User(1L, "me@email.net", "hidden_secret", "All-names-goes"));
         Post post1 = testEntityManager.persist(
-                new Post(user, "Hot Title - 1", "1 - 1 Cool Contents with lots of RANT"));
+                new Post(1L, user, "Hot Title - 1", "1 - 1 Cool Contents with lots of RANT"));
 
         Comment comment1 = testEntityManager.persistFlushFind(
-                new Comment(post1, "commentor1", "just a short comment"));
+                new Comment(1L, post1, "commentor1", "just a short comment"));
         Comment comment2 = testEntityManager.persistFlushFind(
-                new Comment(post1, "commentor1", "another short comment"));
+                new Comment(2L, post1, "commentor1", "another short comment"));
 
         Assertions.assertThat(comment1.getId()).isGreaterThan(0);
         Assertions.assertThat(comment1.getAuthor()).isEqualTo("commentor1");

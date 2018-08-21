@@ -18,7 +18,7 @@ public class UserJPATest {
 
     @Test
     public void userEntityMapping(){
-        User me = testEntityManager.persistFlushFind(new User("me@email.net", "hidden_secret", "All-names-goes"));
+        User me = testEntityManager.persistFlushFind(new User(1L, "me@email.net", "hidden_secret", "All-names-goes"));
         Assertions.assertThat(me.getFullname()).isEqualTo("All-names-goes");
         Assertions.assertThat(me.getEmail()).isEqualTo("me@email.net");
         Assertions.assertThat(me.getPassword()).isEqualTo("hidden_secret");

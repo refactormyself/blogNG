@@ -15,4 +15,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 //    Collection<Post> findAllByAuthor(String name);
 
     Collection<Post> findAllByTitleContains(String title);
+
+//    Post createNewPost(Long userId, String title, String content);
 }

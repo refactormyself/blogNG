@@ -25,9 +25,9 @@ public class CommentRepositoryTest {
 
     @Before
     public void setUp(){
-        User user = userRepository.save(new User("e@mail.com", "password101", "Full of Names"));
-        Post post = postRepository.save(new Post(user, "Title of my Post", "Content of my Post"));
-        commentRepository.save(new Comment(post, "guest-1", "great post. First comment, yeh!!"));
+        User user = userRepository.save(new User(1L, "e@mail.com", "password101", "Full of Names"));
+        Post post = postRepository.save(new Post(1L, user, "Title of my Post", "Content of my Post"));
+        commentRepository.save(new Comment(1L, post, "guest-1", "great post. First comment, yeh!!"));
     }
 
     @Test

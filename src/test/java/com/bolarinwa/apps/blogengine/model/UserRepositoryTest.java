@@ -20,7 +20,7 @@ public class UserRepositoryTest {
 
     @Test
     public void findByUserName(){
-        this.userRepository.save(new User("saheed@myself.com", "pandora-box-key", "Words Full of Names"));
+        this.userRepository.save(new User(1L, "saheed@myself.com", "pandora-box-key", "Words Full of Names"));
 
         Collection<User> usersByName = this.userRepository.findByFullname("Words Full of Names");
         Assertions.assertThat(usersByName.size()).isEqualTo(1);

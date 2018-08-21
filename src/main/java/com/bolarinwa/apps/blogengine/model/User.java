@@ -12,8 +12,7 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
+    @GeneratedValue
     private Long id;
 
     private String email;
@@ -21,7 +20,8 @@ public class User {
     private String fullname;
     private boolean isAdmin;
     
-    public User(String email, String password, String fullname) {
+    public User(Long id, String email, String password, String fullname) {
+        this.id = id;
         this.email = email;
         this.password = password;
         this.fullname = fullname;

@@ -22,11 +22,11 @@ public class PostRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
+    private User user;
     @Before
     public void setUp() throws Exception {
-        User user = userRepository.save(new User("e@mail.com", "password101", "Full of Names"));
-        postRepository.save(new Post(user, "Title of my Post", "Content of my Post"));
-
+        user = userRepository.save(new User(1L, "e@mail.com", "password101", "Full of Names"));
+        postRepository.save(new Post(1L, user, "Title of my Post", "Content of my Post"));
     }
 
     @Test
@@ -45,4 +45,5 @@ public class PostRepositoryTest {
 //        Collection<Post> postsByName = postRepository.findAllByAuthor("Full of Names");
 
     }
+
 }

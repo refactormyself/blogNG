@@ -14,13 +14,10 @@ import java.util.List;
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
+    @GeneratedValue
     private Long id;
-
     private String title;
     private Date postedAt;
-
     @Lob
     private String content;
     
@@ -30,7 +27,8 @@ public class Post {
     @OneToMany(mappedBy="post", cascade=CascadeType.ALL)
     public List<Comment> comments;
 
-    public Post(User author, String title, String content) {
+    public Post(Long id, User author, String title, String content) {
+        this.id = id;
         this.comments = new ArrayList<>();
         this.author = author;
         this.title = title;

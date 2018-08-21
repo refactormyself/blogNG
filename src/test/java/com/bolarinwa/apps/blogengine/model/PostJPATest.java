@@ -20,11 +20,11 @@ public class PostJPATest {
     @Test
     public void postEntityMapping(){
         User user = testEntityManager.persist(
-                new User("me@email.net", "hidden_secret", "All-names-goes"));
+                new User(1L, "me@email.net", "hidden_secret", "All-names-goes"));
         Post post1 = testEntityManager.persistFlushFind(
-                new Post(user, "Hot Title - 1", "1 - 1 Cool Contents with lots of RANT"));
+                new Post(1L, user, "Hot Title - 1", "1 - 1 Cool Contents with lots of RANT"));
         Post post2 = testEntityManager.persistFlushFind(
-                new Post(user, "Hot Title - 2", "2 - 2 Cool Contents with lots of RANT"));
+                new Post(1L, user, "Hot Title - 2", "2 - 2 Cool Contents with lots of RANT"));
 
         Assertions.assertThat(post1.getAuthor()).isEqualTo(user);
         Assertions.assertThat(post1.getAuthor()).isEqualTo(post2.getAuthor());

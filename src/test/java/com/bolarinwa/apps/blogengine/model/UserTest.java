@@ -21,7 +21,7 @@ public class UserTest {
 
     @Test
     public void creation(){
-        User user = new User("me@email.net", "hidden_secret", "All-names-goes");
+        User user = new User(1L,"me@email.net", "hidden_secret", "All-names-goes");
         assertTrue(user.getEmail().equals("me@email.net"));
         Assert.assertThat(user.getPassword(), Matchers.equalTo("hidden_secret"));
         Assertions.assertThat(user.getFullname()).isEqualTo("All-names-goes");

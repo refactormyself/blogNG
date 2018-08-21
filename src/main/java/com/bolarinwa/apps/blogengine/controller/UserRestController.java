@@ -21,7 +21,6 @@ public class UserRestController {
 
     @GetMapping(value = "/users", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     Collection<User> users(){
-//        return Collections.emptyList();
         return userRepository.findAll();
     }
 }
